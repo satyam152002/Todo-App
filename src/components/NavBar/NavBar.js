@@ -7,7 +7,7 @@ function NavBar(props) {
     <nav className="nav-bar">
         <NavHeader user={props.user}/>
         {
-            !props.user.login
+            props.user.login
             &&
             <NavLinks user={props.user} />
         }

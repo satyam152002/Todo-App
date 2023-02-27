@@ -1,18 +1,21 @@
 import './App.css';
 import {connect} from 'react-redux'
 import {updateUser} from './redux/user/user.action'
-import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import Login from './components/Login/Login';
+import {BrowserRouter} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar';
+import PublicRoutes from './PublicRoutes';
+import PrivateRoutes from './PrivateRoutes';
 
 function App(props) {
   
   return (
     <BrowserRouter>
       <NavBar/>
-      <Routes>
-        <Route path='/' element={<Login/>}/>
-      </Routes>
+      {
+        !props.user.login?
+        <PublicRoutes/>:
+        <PrivateRoutes/>
+      }
     </BrowserRouter>
   );
 }
