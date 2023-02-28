@@ -2,7 +2,7 @@
 import {  useState } from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
-import { login } from '../../http/auth.http'
+import { apiLogin } from '../../http/auth.http'
 import { updateUser } from '../../redux/user/user.action'
 import './Login.css'
 function Login(props)
@@ -47,7 +47,7 @@ function Login(props)
     {
         e.preventDefault()
         setError('')
-        login({username:username,password:password})
+        apiLogin({username:username,password:password})
         .then(data=>{
             props.updateUser({
                 username:data.username,

@@ -1,5 +1,5 @@
 
-export function login({username,password})
+export function apiLogin({username,password})
 {
     const options={
             method:'POST',
@@ -34,7 +34,7 @@ export function login({username,password})
         }
     })
 }
-export function register({
+export function apiRegister({
     firstname,lastname,
     email,username,
     password

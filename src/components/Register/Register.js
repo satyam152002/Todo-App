@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { register } from '../../http/auth.http'
+import { apiRegister } from '../../http/auth.http'
 import './Register.css'
 function Register(props)
 {
@@ -56,7 +56,7 @@ function Register(props)
         e.preventDefault()
         setError('')
         setSuccess('')
-        register({
+        apiRegister({
             firstname:firstname,
             lastname:lastname,
             email:email,

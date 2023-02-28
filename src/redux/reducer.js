@@ -5,7 +5,7 @@ import todoReducer  from './todo/todo.reducer'
 
 const reducer=combineReducers({
     user:userReducer,
-    todo:todoReducer
+    todos:todoReducer
 });
 
 export default reducer;

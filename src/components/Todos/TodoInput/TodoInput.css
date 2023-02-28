@@ -1,0 +1,36 @@
+.todo-input-container
+{
+    position: fixed;
+    bottom: .5rem;
+    left: .5rem;
+    right: .5rem;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+}
+.todo-input-container input[type="text"]
+{
+    flex: 1;
+
+}
+.todo-input-container input
+{
+    letter-spacing: .1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: .3rem 1rem;
+    margin: 0;
+}
+.todo-input-container button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    padding: .5rem 2rem;
+}
+.todo-input-date
+{
+    position: absolute;
+    transform: translateY(calc(-100% - 5px));
+}
