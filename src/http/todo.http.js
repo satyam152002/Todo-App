@@ -85,3 +85,35 @@ export function apiDeleteTodo({todoID})
         }
     })
 }
+
+export function apiChangeStateTodo({completed,todoID})
+{
+    const options={
+            method:'PATCH',
+            mode:'cors',
+            credentials:'include',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({
+                completed:completed
+            })
+    }
+    return new Promise(async (resolve,reject)=>{
+
+        try
+        {
+            let res=await fetch(`${SERVER_URL}/todo/${todoID}`,options)
+            if(res.ok)
+            {
+                return resolve(await res.text())
+            }
+            if(res.status===400)
+                return reject(await res.text())
+        }
+        catch(e)
+        {
+            return reject("Some Server error")
+        }
+    })
+}
