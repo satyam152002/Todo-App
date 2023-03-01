@@ -32,7 +32,6 @@ function TodoInput(props)
         apiAddTodo({task:text,todoID:uuidv4()})
         .then(res=>{
             const{task,completed,dueDate,todoID}=res;
-            alert("added successfully")
             props.addTodo({
                 task:task,
                 completed:completed,
