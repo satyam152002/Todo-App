@@ -28,11 +28,11 @@ function NavLinks(props)
 {
     return<>
         <div className={'nav-links'}>
-            <Link to={''} >
+            <Link to={'/'} >
                 <i className="fas fa-list"></i>
                 Todo
             </Link>
-            <Link to={''}>
+            <Link to={'/account'}>
                 <i className="fas fa-user"></i>
                 Account
             </Link>

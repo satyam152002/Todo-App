@@ -77,3 +77,30 @@ export function apiRegister({
         }
     })
 }
+export function apiLogout()
+{
+    const options={
+            method:'POST',
+            mode:'cors',
+            credentials:'include',
+    }
+    return new Promise(async (resolve,reject)=>{
+        try
+        {
+            let res=await fetch(`${SERVER_URL}/auth/logout`,options)
+            if(res.ok)
+            {
+                return resolve(await res.text())
+            }
+            else
+            {
+                let error=await res.text()
+                return reject(error)
+            }
+        }
+        catch(e)
+        {
+            reject('Server Error')
+        }
+    })
+}
