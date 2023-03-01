@@ -13,11 +13,5 @@ function TodoContainer(props)
     </>
 }
 
-function getFormattedDate(date)
-{
-    return date.toISOString().split('T')[0]
-}
-
-
 
 export default connect(state=>({todos:state.todos}))(TodoContainer);
