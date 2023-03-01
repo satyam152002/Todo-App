@@ -1,4 +1,4 @@
-import { ADD_TODO,DEL_TODO, UPDATE_TODO}  from './todo.action'
+import { ADD_TODO,DEL_TODO, SETNULL_TODO, UPDATE_TODO}  from './todo.action'
 
 const merge=(prev,next)=>Object.assign({},prev,next);
 
@@ -6,6 +6,8 @@ const todoReducer=(state=[],action)=>
 {
     switch(action.type)
     {
+        case SETNULL_TODO:
+                return []
         case ADD_TODO:
             return [...state,action.payload]
         case DEL_TODO:

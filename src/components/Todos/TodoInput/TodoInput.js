@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import {connect} from 'react-redux'
 import { addTodo } from '../../../redux/todo/todo.action'
 import './TodoInput.css'
@@ -8,28 +8,39 @@ import { apiAddTodo } from '../../../http/todo.http'
 function TodoInput(props)
 {
     const[text,setText]=useState('')
-    // const[state,setState]=useState('')
+    const dateRef=useRef(null)
     return<>
-    <form onClick={handleSubmit} className="todo-input-container">
-        <input type={'text'} 
-            value={text}
-            // onFocus={()=>setState('focus')}
-            // onBlur={()=>setState('blur')}
-            onChange={e=>setText(e.target.value)}
-            placeholder='Enter Todo'/>
-        <button  
-            type='submit'
-            className='btn btn-outline-primary fas fa-plus-circle'> 
-        </button>
+    <form onSubmit={handleSubmit} className="todo-input-container">
+        <div className='todo-date-container'>
+            <span >Pick A Date</span>
+            <input type={'date'} 
+                ref={dateRef}
+                required
+                />
+        </div>
+        <div className='todo-rest'>
+            <input type={'text'} 
+                value={text}
+                // onFocus={()=>setState('focus')}
+                // onBlur={()=>setState('blur')}
+                onChange={e=>setText(e.target.value)}
+                placeholder='Enter Todo'/>
+            <button  
+                type='submit'
+                className='btn btn-outline-primary fas fa-plus-circle'> 
+            </button>
+        </div>
     </form>
     </>
 
     async function handleSubmit(e)
     {
         e.preventDefault()
+        let dueDate=dateRef.current.valueAsDate
+        console.log(dueDate)
         if(text.trim().length===0)
             return
-        apiAddTodo({task:text,todoID:uuidv4()})
+        apiAddTodo({task:text,todoID:uuidv4(),dueDate:dueDate})
         .then(res=>{
             const{task,completed,dueDate,todoID}=res;
             props.addTodo({

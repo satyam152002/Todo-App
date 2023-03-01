@@ -1,6 +1,6 @@
 import { SERVER_URL } from ".."
 
-export function apiAddTodo({task,todoID})
+export function apiAddTodo({task,todoID,dueDate})
 {
     const options={
             method:'POST',
@@ -11,7 +11,8 @@ export function apiAddTodo({task,todoID})
             },
             body:JSON.stringify({
                 task:task,
-                todoID:todoID
+                todoID:todoID,
+                dueDate:dueDate
             })
     }
     return new Promise(async (resolve,reject)=>{

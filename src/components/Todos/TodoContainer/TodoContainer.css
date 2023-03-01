@@ -36,7 +36,7 @@ i.todo-delete-icon
     color: hsl(0, 92%, 46%);
 }
 
-
+/* 
 .filter-container
 {
     display: flex;
@@ -71,4 +71,4 @@ i.todo-delete-icon
 .filter-container .filter-label span:first-child
 {
     border-right: 1px solid grey;
-}
+} */
