@@ -59,3 +59,29 @@ export function apiLoadTodo()
         }
     })
 }
+
+export function apiDeleteTodo({todoID})
+{
+    const options={
+            method:'DELETE',
+            mode:'cors',
+            credentials:'include',
+    }
+    return new Promise(async (resolve,reject)=>{
+
+        try
+        {
+            let res=await fetch(`${SERVER_URL}/todo/${todoID}`,options)
+            if(res.status===200)
+            {
+                return resolve({deleted:true})
+            }
+            else
+                return reject({deleted:false})
+        }
+        catch(e)
+        {
+            return reject({deleted:false})
+        }
+    })
+}

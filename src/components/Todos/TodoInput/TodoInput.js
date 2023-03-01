@@ -31,8 +31,14 @@ function TodoInput(props)
             return
         apiAddTodo({task:text,todoID:uuidv4()})
         .then(res=>{
+            const{task,completed,dueDate,todoID}=res;
             alert("added successfully")
-            props.addTodo({...res})
+            props.addTodo({
+                task:task,
+                completed:completed,
+                dueDate:dueDate,
+                todoID:todoID
+            })
         })
         .catch(e=>alert("error"))
         setText('')
