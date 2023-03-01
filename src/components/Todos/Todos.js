@@ -16,7 +16,7 @@ function Todos(props)
             .catch(e=>{
                 console.log(e)
             })
-    },[])
+    })
     return<>
         <TodoContainer/>
         <TodoInput />

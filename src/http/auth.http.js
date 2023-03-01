@@ -1,3 +1,4 @@
+import { SERVER_URL } from ".."
 
 export function apiLogin({username,password})
 {
@@ -16,7 +17,7 @@ export function apiLogin({username,password})
     return new Promise(async (resolve,reject)=>{
         try
         {
-            let res=await fetch('http://localhost:5000/auth/login',options)
+            let res=await fetch(`${SERVER_URL}/auth/login`,options)
             if(res.ok)
             {
                 let result=await res.json()
@@ -58,7 +59,7 @@ export function apiRegister({
     return new Promise(async (resolve,reject)=>{
         try
         {
-            let res=await fetch('http://localhost:5000/auth/register',options)
+            let res=await fetch(`${SERVER_URL}/auth/register`,options)
             if(res.ok)
             {
                 let result=await res.text()

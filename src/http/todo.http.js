@@ -1,3 +1,4 @@
+import { SERVER_URL } from ".."
 
 export function apiAddTodo({task,todoID})
 {
@@ -17,12 +18,12 @@ export function apiAddTodo({task,todoID})
 
         try
         {
-            let res=await fetch(`http://localhost:5000/todo/`,options)
+            let res=await fetch(`${SERVER_URL}/todo/`,options)
             if(res.ok)
             {
                 return resolve(await res.json())
             }
-            if(res.status==400)
+            if(res.status===400)
                 return reject(await res.text())
         }
         catch(e)
@@ -44,7 +45,7 @@ export function apiLoadTodo()
 
         try
         {
-            let res=await fetch(`http://localhost:5000/todo/`,options)
+            let res=await fetch(`${SERVER_URL}/todo/`,options)
             if(res.ok)
             {
                 return resolve(await res.json())

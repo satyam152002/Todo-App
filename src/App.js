@@ -5,7 +5,6 @@ import {BrowserRouter} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar';
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
-
 function App(props) {
   
   return (

@@ -2,19 +2,19 @@ import { useState } from 'react'
 import {connect} from 'react-redux'
 import { addTodo } from '../../../redux/todo/todo.action'
 import './TodoInput.css'
-import { v4 as uuidv4, v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { apiAddTodo } from '../../../http/todo.http'
 
 function TodoInput(props)
 {
     const[text,setText]=useState('')
-    const[state,setState]=useState('')
+    // const[state,setState]=useState('')
     return<>
     <form onClick={handleSubmit} className="todo-input-container">
         <input type={'text'} 
             value={text}
-            onFocus={()=>setState('focus')}
-            onBlur={()=>setState('blur')}
+            // onFocus={()=>setState('focus')}
+            // onBlur={()=>setState('blur')}
             onChange={e=>setText(e.target.value)}
             placeholder='Enter Todo'/>
         <button  
@@ -29,7 +29,7 @@ function TodoInput(props)
         e.preventDefault()
         if(text.trim().length===0)
             return
-        apiAddTodo({task:text,todoID:v4()})
+        apiAddTodo({task:text,todoID:uuidv4()})
         .then(res=>{
             alert("added successfully")
             props.addTodo({...res})
